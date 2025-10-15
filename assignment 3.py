@@ -5,8 +5,8 @@ import re
 from io import StringIO
 from datetime import datetime
 
-# Function to download the CSV log file
-def download_log_file(url):
+# the function to download the CSV log file
+def download_log_file(url="http://s3.amazonaws.com/cuny-is211-spring2015/weblog.csv"):
     try:
         response = urllib.request.urlopen(url)
         data = response.read().decode('utf-8')
@@ -80,11 +80,11 @@ if __name__ == "__main__":
     if log_data:  # Proceed only if file was successfully downloaded
         log_entries = process_csv(log_data)
 
-        # Part III: Calculate image hits
+        # Part 3: Calculate image hits
         calculate_image_hits(log_entries)
 
-        # Part IV: Find the most popular browser
+        # Part 4: Find the most popular browser
         most_popular_browser(log_entries)
 
-        # Extra Credit: Display hits by hour
+        #this displays hits by the hour
         hits_by_hour(log_entries)
